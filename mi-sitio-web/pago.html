@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago - Ecofinca Salamanca</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Ecofinca Salamanca</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="cabanas.html">Cabañas y Combos</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="pago">
+        <h2>Proceso de Pago</h2>
+
+        <form action="#" method="post">
+            <label for="nombre">Nombre Completo:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="tel" id="telefono" name="telefono" required>
+
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
+
+            <label for="metodo">Método de Pago:</label>
+            <select id="metodo" name="metodo" required>
+                <option value="">-- Seleccione --</option>
+                <option value="efectivo">Pago en efectivo al llegar</option>
+                <option value="transferencia">Transferencia bancaria</option>
+                <option value="tarjeta">Tarjeta de crédito/débito</option>
+            </select>
+
+            <input type="submit" value="Confirmar Reserva">
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 Ecofinca Salamanca - Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
