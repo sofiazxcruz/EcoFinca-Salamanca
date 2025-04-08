@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cabañas y Combos - Ecofinca Salamanca</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function mostrarCombo() {
+            var seleccion = document.getElementById("opcionCombo").value;
+            var cabana = document.getElementById("cabanaCompleta");
+            var paseDia = document.getElementById("paseDia");
+
+            cabana.style.display = "none";
+            paseDia.style.display = "none";
+
+            if (seleccion === "cabana") {
+                cabana.style.display = "block";
+            } else if (seleccion === "pase") {
+                paseDia.style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>Ecofinca Salamanca</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Galería</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="login.html" class="login-btn">Iniciar Sesión</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="combos">
+        <h2>Cabañas y Combos</h2>
+
+        <label for="opcionCombo">Seleccione una opción:</label>
+        <select id="opcionCombo" onchange="mostrarCombo()">
+            <option value="">-- Elegir --</option>
+            <option value="cabana">Cabaña Completa</option>
+            <option value="pase">Pase del Día</option>
+        </select>
+
+        <div id="cabanaCompleta" style="display:none;" class="combo">
+            <h3>Cabaña Completa</h3>
+            <p>Incluye:</p>
+            <ul>
+                <li>Internet</li>
+                <li>Baño privado</li>
+                <li>Energía eléctrica</li>
+                <li>Paseo guiado por la finca</li>
+            </ul>
+            <p><strong>Precio por noche:</strong></p>
+            <ul>
+                <li>$125 con transporte</li>
+                <li>$100 sin transporte</li>
+            </ul>
+            <a href="pago.html" class="cta-btn">Reservar Ahora</a>
+        </div>
+        
+
+        <div id="paseDia" style="display:none;" class="combo">
+            <h3>Pase del Día</h3>
+            <p>Incluye acceso al río y almuerzo a elección:</p>
+            <ul>
+                <li>Hamburguesa</li>
+                <li>Pizza</li>
+                <li>Lasaña</li>
+            </ul>
+            <a href="pago.html" class="cta-btn">Reservar Ahora</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Ecofinca Salamanca - Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
