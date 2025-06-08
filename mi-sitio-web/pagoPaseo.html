@@ -125,6 +125,11 @@
 
             const formData = new FormData(formulario);
             const cliente = localStorage.getItem('isRegister')
+
+            if (cliente) {
+                alert('Por favor inicie secion')
+                return
+            }
             const clienteParse = JSON.parse(cliente)
             formData.append("clienteId", clienteParse.id)
             formData.append("costo", 50)
