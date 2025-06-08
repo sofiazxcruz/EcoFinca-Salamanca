@@ -116,3 +116,102 @@ footer {
 .login-container button:hover {
     background-color: #45a049;
 }
+
+/* === Estilos exclusivos para cabanas.html === */
+
+body.cabanas-page {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Header y Navegación --- */
+body.cabanas-page header {
+    background-color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+body.cabanas-page header h1 {
+    margin: 0;
+}
+
+body.cabanas-page nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+body.cabanas-page nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+body.cabanas-page nav ul li a {
+    color: black;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+body.cabanas-page .login-btn {
+    background: #e6f4ea;
+    color: #2d572c;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* --- Combos Section --- */
+body.cabanas-page .combos {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+body.cabanas-page .combos select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+
+/* --- Tarjetas de Combo --- */
+body.cabanas-page .combo {
+    background-color: #e6f4ea;
+    margin: 40px auto 20px;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: none;
+}
+
+body.cabanas-page .combo h3 {
+    margin-top: 0;
+}
+
+body.cabanas-page .cta-btn {
+    display: inline-block;
+    background: #FFD700;
+    color: black;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+/* --- Footer --- */
+body.cabanas-page footer {
+    background-color: #2d2d2d;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+}

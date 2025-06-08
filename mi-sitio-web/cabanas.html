@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cabañas y Combos - Ecofinca Salamanca</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style-cabanas.css"> <!-- CSS exclusivo para esta página -->
     <script>
         function mostrarCombo() {
             var seleccion = document.getElementById("opcionCombo").value;
@@ -22,8 +23,9 @@
         }
     </script>
 </head>
-<body>
+<body class="cabanas-page">
 
+    <!-- Header y Navbar -->
     <header>
         <h1>Ecofinca Salamanca</h1>
         <nav>
@@ -37,6 +39,7 @@
         </nav>
     </header>
 
+    <!-- Contenido de la página -->
     <section class="combos">
         <h2>Cabañas y Combos</h2>
 
@@ -47,7 +50,7 @@
             <option value="pase">Pase del Día</option>
         </select>
 
-        <div id="cabanaCompleta" style="display:none;" class="combo">
+        <div id="cabanaCompleta" class="combo">
             <h3>Cabaña Completa</h3>
             <p>Incluye:</p>
             <ul>
@@ -63,9 +66,8 @@
             </ul>
             <a href="pago.html" class="cta-btn">Reservar Ahora</a>
         </div>
-        
 
-        <div id="paseDia" style="display:none;" class="combo">
+        <div id="paseDia" class="combo">
             <h3>Pase del Día</h3>
             <p>Incluye acceso al río y almuerzo a elección:</p>
             <ul>
@@ -77,6 +79,7 @@
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
         <p>© 2025 Ecofinca Salamanca - Todos los derechos reservados.</p>
     </footer>
