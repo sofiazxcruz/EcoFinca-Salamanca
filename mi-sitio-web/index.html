@@ -7,6 +7,30 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
+<style>
+    .hidden {
+        display: none;
+    }
+
+    .btn-logout {
+        background-color: #4CAF50;
+        padding: 12px 30px;
+        border: none;
+        margin-right: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        color: white;
+    }
+
+    .btn-logout:hover {
+        background-color:green ;
+    }
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+</style>
 <body>
 
     <nav>
@@ -18,11 +42,13 @@
             <li><a href="cabanas.html">Cabañas y Combos</a></li>
             <li><a href="login.html" class="login-btn">Iniciar Sesión</a></li>
         </ul>
+        <button class="hidden btn-logout" id="btn-logout">Salir</button>
     </nav>
     
 
     <section class="hero">
         <h2>Conéctate con la Naturaleza</h2>
+        <p id="user"></p>
         <p>Disfruta de una experiencia única en nuestra finca ecológica.</p>
         <a href="#" class="cta-btn">Reserva Ahora</a>
     </section>
@@ -48,3 +74,27 @@
 
 </body>
 </html>
+
+<script>
+    // Mostrar mensaje si existe en localStorage
+    const mensaje = localStorage.getItem('registroExitoso');
+    const user = localStorage.getItem('isRegister')
+    if (mensaje) {
+        alert(mensaje); // O puedes mostrarlo dentro del HTML si quieres
+        localStorage.removeItem('registroExitoso'); // Limpia para que no aparezca siempre
+    }
+
+    document.getElementById('btn-logout').addEventListener('click', () => {
+        localStorage.removeItem('isRegister'); // Limpia para que no aparezca siempre
+        window.location.href = '/EcoFinca-Salamanca/mi-sitio-web/index.html';
+    })
+
+    if (user){
+        document.getElementById('user').innerText = `Hola ${user}`
+        document.querySelector('.login-btn').classList.add('hidden')
+        document.getElementById('btn-logout').classList.remove('hidden')
+    } else {
+        document.getElementById('btn-logout').classList.add('hidden')
+        document.querySelector('.login-btn').classList.remove('hidden')
+    }
+</script>

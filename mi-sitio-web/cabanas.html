@@ -22,6 +22,30 @@
         }
     </script>
 </head>
+<style>
+    .hidden {
+        display: none;
+    }
+
+    .btn-logout {
+        background-color: #fcfcfc;
+        padding: 12px 30px;
+        border: none;
+        margin-right: 10px;
+        border-radius: 10px;
+        cursor: pointer;
+        color: black;
+    }
+
+    .btn-logout:hover {
+        background-color:white ;
+    }
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+</style>
 <body>
 
     <header>
@@ -34,6 +58,7 @@
                 <li><a href="#">Contacto</a></li>
                 <li><a href="login.html" class="login-btn">Iniciar Sesión</a></li>
             </ul>
+            <button class="hidden btn-logout" id="btn-logout">Salir</button>
         </nav>
     </header>
 
@@ -80,6 +105,24 @@
     <footer>
         <p>© 2025 Ecofinca Salamanca - Todos los derechos reservados.</p>
     </footer>
+    <script>
+    // Mostrar mensaje si existe en localStorage
+    const user = localStorage.getItem('isRegister')
+
+    document.getElementById('btn-logout').addEventListener('click', () => {
+        localStorage.removeItem('isRegister'); // Limpia para que no aparezca siempre
+        window.location.href = '/EcoFinca-Salamanca/mi-sitio-web/index.html';
+    })
+
+    if (user){
+        console.log('si')
+        document.querySelector('.login-btn').classList.add('hidden')
+        document.getElementById('btn-logout').classList.remove('hidden')
+    } else {
+        document.getElementById('btn-logout').classList.add('hidden')
+        document.querySelector('.login-btn').classList.remove('hidden')
+    }
+</script>
 
 </body>
 </html>
