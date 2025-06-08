@@ -86,7 +86,7 @@
     })
 
     if (user){
-        document.getElementById('user').innerText = `Hola ${user}`
+        document.getElementById('user').innerText = `${JSON.parse(user).username}`
         document.querySelector('.login-btn').classList.add('hidden')
         document.getElementById('btn-logout').classList.remove('hidden')
     } else {

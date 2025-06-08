@@ -25,61 +25,63 @@
         <p>¿No tienes una cuenta? <a href="register.html">Regístrate</a></p>
     </div>
 
-<script>
-    const formulario = document.getElementById('formLogin')
-    const usernameError = document.getElementById('username_error');
-    const passwordError = document.getElementById('password_error');
+    <script>
+        const formulario = document.getElementById('formLogin')
+        const usernameError = document.getElementById('username_error');
+        const passwordError = document.getElementById('password_error');
 
-    formulario.addEventListener('submit', function(event) {
-        event.preventDefault(); 
-        let valid = true;
+        formulario.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            let valid = true;
 
-        usernameError.textContent = '';
-        passwordError.textContent = '';
+            usernameError.textContent = '';
+            passwordError.textContent = '';
 
-        const nombreUsuario = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
+            const nombreUsuario = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
-        if (nombreUsuario === ''){
-            usernameError.textContent = 'El nombre de usuario es obligatorio'
-            valid = false;
-        }
-        
-        if (password === ''){
-            passwordError.textContent = 'La contraseña es obligatoria'
-            valid = false;
-        }
+            if (nombreUsuario === ''){
+                usernameError.textContent = 'El nombre de usuario es obligatorio'
+                valid = false;
+            }
+            
+            if (password === ''){
+                passwordError.textContent = 'La contraseña es obligatoria'
+                valid = false;
+            }
 
-        if (!valid) {
-            return; 
-        }
+            if (!valid) {
+                return; 
+            }
 
-        const formData = new FormData(formulario);
-        console.log([...formData.entries()]);
+            const formData = new FormData(formulario);
+            console.log([...formData.entries()]);
 
-        fetch('./controller/login.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => {
-            if (response.status === 201) {
+            sedData(formData)
+
+            
+        });
+
+        const sedData = async (formData) => {
+            const res = await fetch('./controller/login.php', {
+                method: 'POST',
+                body: formData
+            })
+            
+            if (res.status === 201) {
+                const data = await res.json()
                 // Redirección si el registro fue exitoso
-                localStorage.setItem('isRegister', formData.get('username'))
+                localStorage.setItem('isRegister', JSON.stringify(data.data))
                 localStorage.setItem('registroExitoso', `¡Registro exitoso! Bienvenido a Eco Finca Salamanca ${formData.get('username')}.`);
                 window.location.href = '/EcoFinca-Salamanca/mi-sitio-web/index.html';
             } else {
-                return response.text().then(text => {
+                return res.text().then(text => {
                     console.error("Error en el registro:", text);
                     alert("Error de credenciales. Intente nuevamente");
                 });
             }
-        })
-        .catch(error => {
-            console.error("Error en la solicitud:", error);
-            alert("Hubo un problema al conectar con el servidor.");
-        });
-    });
-</script>
+        }
+    </script>
 
 </body>
 </html>
